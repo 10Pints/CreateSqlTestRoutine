@@ -1,0 +1,5 @@
+﻿-- =======================================================
+-- Author          : Terry Watts
+-- Create date     : {0}
+-- test Description: test helper for {1} tests
+-- tested rtn Desc.: {2}

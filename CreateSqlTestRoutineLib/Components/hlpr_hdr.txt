@@ -1,0 +1,12 @@
+﻿
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- ===================================================================
+-- Author:		 Terry Watts
+-- Create date: {0}
+-- Description: {1} tests
+-- Description: {1} {2}

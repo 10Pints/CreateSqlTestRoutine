@@ -1,0 +1,58 @@
+﻿
+      -- Declare 3 counts A,B,C INT
+      DECLARE
+          @cnt_1           INT
+         ,@cnt_2           INT
+         ,@cnt_3           INT
+         ,@deleted_cnt     INT      
+         ,@id              INT = 0
+   
+      -- Count the rows in the table -> Cnt A
+      SELECT @cnt_1 = COUNT(*) FROM {0};
+   
+      -- Create a new item note its id -> ID *** delete later!
+      -- EXEC {2} <params> ,@id OUTPUT
+   
+      -- check the create worked
+      EXEC tSQLt.AssertNotEquals 0, @id
+   
+      -- Count the rows in the table -> Cnt B
+      SELECT @cnt_2 = COUNT(*)-1 FROM {0} 
+   
+      -- Chk: B=A+1
+      EXEC tSQLt.AssertEquals @cnt_1, @cnt_2;
+   
+      -- Check new item(ID) exists in the table
+      IF NOT EXISTS (SELECT 1 FROM {0} WHERE {0}_id=@id)
+      BEGIN
+         EXEC tSQLt.Fail 'test failed to create the test record'
+      END
+      -- A = C
+   
+      ---------------------------------------------------------
+      -- Run the tested delete rtn
+      ---------------------------------------------------------
+      EXEC {1} @id, @deleted_cnt OUTPUT
+   
+      -- count the rows in the table -> Cnt C
+      SELECT @cnt_3 = COUNT(*)-1 FROM {0} ;
+   
+      -- Chk:A = C
+      EXEC tSQLt.AssertEquals @cnt_1, @cnt_3;
+   
+      -- Check new item(ID) no longer exists in the table
+      IF EXISTS(SELECT 1 FROM [{0}] where {0}_id = @id)
+      BEGIN
+         DECLARE @msg NVARCHAR(150) = CONCAT('Failed to delete the test record, id: ', @id, ' from {0} table');
+         THROW 54000, @msg, 1
+      END
+   
+   
+      -------------------------------------
+      -- Assert:
+      -------------------------------------
+   
+      EXEC tSQLt.AssertEquals    @cnt_1, @cnt_3;
+   
+      -- clean state *** copy to catch block
+      delete from [{0}] where {0}_id = @id;

@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "CreateSqlTestRoutineApp": {
+      "commandName": "Project",
+      "commandLineArgs": "dbo.sp_pop_continent 79",
+      "sqlDebugging": true
+    }
+  }
+}

@@ -1,0 +1,53 @@
+﻿
+         DECLARE
+             @exp_{1}_id   INT = 1
+            ,@act_{1}_id   INT = 0
+
+         -- Create a new record with the expected state note its pk
+         EXEC {2}  
+            -- add params here
+            @exp_{1}_id  OUTPUT
+
+         -- Create a tmp table for the tested Get1 rtn
+         DROP TABLE if exists #tmpTbl;
+
+         CREATE TABLE #tmpTbl
+         (
+	         {1}_id int,
+            -- add fields here
+         );
+
+         -------------------------------------
+         -- Run rtn:
+         -------------------------------------
+
+         -- Call the tested rtn to populate 
+         -- The tmp table with All records 
+         INSERT INTO #tmpTbl EXEC {0} 1
+
+         -- Select the record in the tmp table
+         SELECT 
+            @act_{1}_id
+            --  add fields here
+         FROM #tmpTbl {0};
+
+         ---------------------------------------------
+         -- Check the exp state against the act state
+         ---------------------------------------------
+         /*
+         EXEC tSQLt.AssertEquals @exp_{1}_id, @act_{1}_id, '{1}_id'
+         EXEC tSQLt.AssertEquals @exp, @act, '.'
+         EXEC tSQLt.AssertEquals @exp, @act, '.'
+         */
+
+         -- In all cases remove the new record from the table
+         -- *** copy this the catch bloc
+         DELETE FROM [{1}] WHERE {1}_id = @act_{1}_id;
+
+         /*
+         0: tested fn 
+         1: table name
+         2: crt sp
+         3: where clause
+         */
+

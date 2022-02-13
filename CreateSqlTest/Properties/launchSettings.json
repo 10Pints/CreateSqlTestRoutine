@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CreateSqlTest": {
+      "commandName": "Project",
+      "commandLineArgs": "sp_CV_Get1  100 \"Get 1 CV by id\""
+    }
+  }
+}

@@ -1,0 +1,10 @@
+﻿--
+-- Get All Test Strategy:
+-- Create a new record with the expected state note its pk
+-- create a tmp table for the tested GetAll rtn
+-- call the tested rtn to populate 
+-- the tmp table with All records 
+-- select the record in the tmp table
+-- check the exp state against the act state
+-- in all cases remove the new record from the table
+-- =======================================================

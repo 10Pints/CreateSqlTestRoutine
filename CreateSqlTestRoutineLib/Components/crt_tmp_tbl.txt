@@ -1,0 +1,9 @@
+﻿
+   -----------------------------------------
+   -- Create the temp table
+   -----------------------------------------
+
+   DROP TABLE IF EXISTS #tmpTbl;
+
+   CREATE TABLE #tmpTbl
+   (

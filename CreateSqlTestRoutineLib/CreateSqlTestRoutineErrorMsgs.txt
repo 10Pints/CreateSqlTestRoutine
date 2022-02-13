@@ -1,0 +1,20 @@
+﻿3000,connection string is not specified
+3001,Could not determine the test type for {0}
+3002,currently only handles single column PK
+3003,database name is not specified.
+3004,default connection string is not specified
+3005,failed to extract the Initial Catalog key from the connection string
+3006,OutArgsMap is not Populated
+3007,could not determine the test type for dbo.abc
+3008,ParamMap is not Populated 
+3009,PopRtnOutputColInfoList failed
+3010,primary key fields list is not specified
+3011,primary key not found
+3012,Schema name is not specified
+3013,sql script writer not initialised
+3014,table  is not specified.
+3015,test number must be < 1000
+3016,test number must be > 0
+3017,tested routine must be specified
+3018,TstdRtnNm is not specified
+3019,view is not specified

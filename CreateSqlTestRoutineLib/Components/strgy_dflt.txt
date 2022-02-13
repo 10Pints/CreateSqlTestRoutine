@@ -1,0 +1,6 @@
+﻿--
+-- Test Strategy:
+-- Use try catch throw to remove any test state
+-- Create new items to operate on even in get scenarios to guarantee known state
+-- Allways clean up after (end of try, and in the catch)
+-- =======================================================

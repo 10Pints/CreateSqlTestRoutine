@@ -1,0 +1,13 @@
+﻿END
+
+/*
+-----------------------------------------------------------
+EXEC ut.dbo.sp_set_debug_mode 1
+EXEC tSQLt.Run 'test.{TstRtnMnNm}'
+-----------------------------------------------------------
+
+EXEC tSQLt.RunAll
+
+EXEC {Schema}.{TstRtnHlprNm}
+*/
+GO

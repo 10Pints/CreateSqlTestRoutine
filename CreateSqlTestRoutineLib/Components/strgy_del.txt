@@ -1,0 +1,14 @@
+﻿--
+-- Delete Test Strategy:
+--    Declare 3 counts A,B,C INT
+--    count the rows in the table -> Cnt A
+--    Create a new item not its id -> ID
+--    count the rows in the table -> Cnt B
+--    Chk: B=A+1
+--    chk new item(ID)  exists in the table
+--    A = C
+--    run the tested delete rtn
+--    count the rows in the table -> Cnt C
+--    Chk:A = C
+--    chk new item(ID) no longer exists in the table
+-- =======================================================

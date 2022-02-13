@@ -1,0 +1,25 @@
+﻿      -- script params
+      -- 0: test sp nm
+      -- 1: table
+
+      -------------------------------------
+      -- If here then test passed
+      -------------------------------------
+
+      PRINT 'passed: {0}';
+   END TRY
+   BEGIN CATCH
+      -- clean state
+      DELETE * FROM [{1}]  WHERE {1}_id = @id;
+      -- Rethrow so that the test framework handles the error
+      THROW;
+   END CATCH
+END
+/*
+------------------------------------------------------
+EXEC tSQLt.Run 'test.{0}';
+EXEC test.sp_run_all_tests
+------------------------------------------------------
+*/
+
+GO

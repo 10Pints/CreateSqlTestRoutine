@@ -1,0 +1,10 @@
+﻿--
+-- Update Test Strategy:
+-- define 2 states A, B: for all fields A.fld <> B.fld
+-- Create a new record with state A, note its pk
+-- Crt any dependencies
+-- Chk the state the new record matches state A
+-- Update the record with state B
+-- Chk the state the new record matches state B
+-- All scenarios: delete the newly created state including dependencies
+-- =======================================================

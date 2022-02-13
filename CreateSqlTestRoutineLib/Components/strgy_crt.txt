@@ -1,0 +1,30 @@
+﻿--
+-- Create Test Strategy:
+-- 1: Parameters: 
+--     test num, exp rc of the procedure
+--    ,inputs for each settable field (modifyable state)
+--    ,expected values for any out put cols
+--    ,but not the id 
+--
+-- 2: Use a transaction to leave the state unaffected after the test (tSQLt framework)
+-- 3: Declare actuals for each state item
+-- 4: Crt any dependencies
+-- 5: run the tested rtn: create a new item (makes sure delete later in all scenarios)
+
+-- 6: get the modified state into act variables:
+--    SET 
+--       @act_col_1=col_1
+--       @act_col_2=col_2
+--       @act_col_3=col_3 ...
+--    FROM <table> 
+--    WHERE (key flds match input key flds)
+
+-- 7: Run the checks with error msgs on each state item (imp/act) 
+--    and each expected output item (but not PK (exp/act))
+
+-- 8: if passed print passed msg
+--    checks will print failure message
+
+-- 9: All scenarios: delete the newly created state including dependencies  (tSQLt txn)
+-- =======================================================
+
